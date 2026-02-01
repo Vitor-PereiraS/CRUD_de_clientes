@@ -80,13 +80,15 @@ A API retorna respostas padronizadas seguindo boas práticas REST:
 1. Clone o repositório:
    ```bash
    git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-Acesse a pasta do projeto e execute:
+2. Acesse a pasta do projeto e execute:
 
 ./mvnw spring-boot:run
-A API estará disponível em:
+
+3. A API estará disponível em:
 
 http://localhost:8080
-O console do banco H2 pode ser acessado em:
+
+4.O console do banco H2 pode ser acessado em:
 
 http://localhost:8080/h2-console
 
