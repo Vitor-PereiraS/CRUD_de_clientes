@@ -1,73 +1,94 @@
-CRUD de Clientes - Spring Boot API
+# CRUD de Clientes – Spring Boot API
 
-Este projeto é uma API REST robusta desenvolvida para o gerenciamento de clientes, com foco em integridade de dados, validações estruturadas e tratamento de exceções. O sistema permite o armazenamento e manipulação de informações essenciais, garantindo que a base de dados permaneça consistente e performática.
+Este projeto consiste em uma **API REST para gerenciamento de clientes**, desenvolvida com Spring Boot e seguindo boas práticas de arquitetura, validação de dados e tratamento de exceções.  
+O foco principal é garantir **integridade, consistência e qualidade dos dados**, além de uma experiência clara para quem consome a API.
 
+---
 
-🚀 Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
-Java 17
+- Java 17  
+- Spring Boot 3  
+- Spring Data JPA (Persistência de dados)  
+- H2 Database (Banco de dados em memória para testes)  
+- Maven (Gerenciamento de dependências)  
+- Bean Validation (Validações e regras de negócio)
 
-Spring Boot 3
+---
 
-Spring Data JPA (Persistência de dados)
+## 📋 Funcionalidades
 
-H2 Database (Banco de dados em memória para testes)
+A API expõe um recurso de **Clientes**, com as seguintes operações:
 
-Maven (Gerenciamento de dependências)
+- **Busca Paginada**  
+  Listagem eficiente de clientes com paginação, visando melhor performance.
 
-Bean Validation (Regras de negócio e integridade)
+- **Busca por ID**  
+  Recuperação detalhada de um cliente específico.
 
+- **Criação de Cliente**  
+  Cadastro de novos clientes com validação de campos obrigatórios.
 
-📋 Funcionalidades
-A API expõe um recurso de clientes com as seguintes operações:
+- **Atualização de Cliente**  
+  Alteração de dados existentes com verificação de erros e inconsistências.
 
-Busca Paginada: Listagem eficiente de recursos para otimização de performance.
+- **Remoção de Cliente**  
+  Exclusão segura de registros a partir do identificador.
 
-Busca por ID: Recuperação detalhada de um registro específico.
+---
 
-Inserção de Novo Recurso: Cadastro de clientes com validação de campos.
+## ⚙️ Regras de Negócio e Validações
 
-Atualização de Recurso: Edição de dados existentes com tratamento de erro.
+Para assegurar a qualidade dos dados (**Data Quality**), o projeto implementa:
 
-Deleção de Recurso: Remoção segura de registros por identificador.
+- **Nome**  
+  Campo obrigatório, não pode ser vazio ou nulo.
 
+- **Data de Nascimento**  
+  Validada para impedir datas futuras (`@PastOrPresent`).
 
-⚙️ Regras de Negócio e Validações
+- **Mapeamento de Banco de Dados**  
+  Conversão automática de `camelCase` para `snake_case`  
+  Exemplo: `birthDate` → `birth_date`.
 
-Para garantir a qualidade dos dados (Data Quality), o projeto implementa:
+- **Seed de Dados**  
+  A aplicação já inicia com um script SQL contendo **mais de 10 registros**, facilitando testes imediatos das rotas da API.
 
-Nome: Campo obrigatório (não pode ser vazio).
+---
 
-Data de Nascimento: Validada para impedir datas futuras (@PastOrPresent).
+## ⚠️ Tratamento de Exceções
 
-Mapeamento de Banco: Conversão automática de camelCase para snake_case (ex: birthDate -> birth_date).
+A API retorna respostas padronizadas seguindo boas práticas REST:
 
-Seed de Dados: O projeto já inicia com um script SQL contendo mais de 10 registros significativos para facilitar o teste imediato das rotas.
+- **404 – Not Found**  
+  Quando o ID solicitado não existe no banco de dados.
 
+- **422 – Unprocessable Entity**  
+  Quando ocorre falha de validação, retornando mensagens claras e específicas para cada campo inválido.
 
-⚠️ Tratamento de Exceções
+---
 
-A API retorna códigos de status HTTP padronizados:
+## 🛠️ Como Executar o Projeto
 
-404 Not Found: Retornado quando um ID solicitado não existe no banco.
+### Pré-requisitos
 
-422 Unprocessable Entity: Retornado em falhas de validação, acompanhado de uma mensagem customizada detalhando o erro em cada campo.
+- Java 17  
+- Maven  
 
-🛠️ Como Executar o Projeto
-Certifique-se de ter o Java 17 e o Maven instalados.
+### Passos para execução
 
-Clone o repositório:
-
-Bash
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
 Acesse a pasta do projeto e execute:
 
-Bash
 ./mvnw spring-boot:run
-A API estará disponível em http://localhost:8080.
+A API estará disponível em:
 
-O console do Banco H2 pode ser acessado em http://localhost:8080/h2-console.
+http://localhost:8080
+O console do banco H2 pode ser acessado em:
 
+http://localhost:8080/h2-console
 
 👤 Autor
 Vitor Pereira de Souza
