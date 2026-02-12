@@ -1,4 +1,4 @@
-# API base pra Cadastro de Clientes – Spring Boot API
+# API base para Cadastro de Clientes
 
 Este projeto consiste em uma **API REST para gerenciamento de clientes**, desenvolvida com Spring Boot e seguindo boas práticas de arquitetura, validação de dados e tratamento de exceções.  
 O foco principal é garantir **integridade, consistência e qualidade dos dados**, além de uma experiência clara para quem consome a API.
